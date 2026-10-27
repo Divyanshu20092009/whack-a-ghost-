@@ -1,0 +1,30 @@
+.yard {
+    position: relative;
+    height: 480px;
+    background: #30352b url("../assests/images/background.png") center / 100% 100%;
+    image-rendering: pixelated;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    z-index: 5; background: #101213e8;
+}
+
+.paper {
+    padding: 22px; text-align: center;
+    width: 300px; max-height: calc(100% - 16px);
+    overflow-y: auto;
+}
+
+.subtitle { font-size: 13px; color: #b3baaa; margin: 0 0 26px; }
+.paper .primary { display: block; width: 100%; margin-bottom: 13px; }
+#help { font-size: 12px; line-height: 1.7; padding-top: 10px; color: #d1cbb2; }
+
+.modes { border: 0; padding: 0; margin: 0 0 21px; display: flex; gap: 22px; justify-content: center; font-size: 12px; }
+
+.modes label { cursor: pointer; } 
+.modes input { accent-color: #bab89d; margin: 0; vertical-align: middle; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+

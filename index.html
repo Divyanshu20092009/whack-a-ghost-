@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <meta name="theme-color" content="#161b29">
+        <title>Whack the Ghost</title>
+        <link rel="stylesheet" href="css/base.css">
+        <linkn rel="stylesheet" href="css/game.css">
+        <script src="js/main.js" defer></script>
+        </head>
+        <body>
+
+
+            <main class="cabinet">
+                <header class="cabinet">
+                    <header class="masthead"><h1> WHACK THE GHOST</h1></header>
+                    <section id="yard" class="yard" aria-label="Graveyard game board">
+                        <div id="menu" class="overlay" role="dialog" aria-label="start game" aria-model="true">
+                            <div class="paper menu-paper">
+                                <p class="subtitle">The ghosts are out tonight</p>
+                                <fieldset class="modes">
+                                    <legend class="sr-only"> Round duration</legend>
+                                    <label><input type="radio" name="duration" value="45" checked> 45 sec</label>
+                                    <label><input type="radio" name="duration" value="60"> 60 sec</label>
+                                </fieldset>
+                                <button id="play" class="primary">PLAY</button>
+                                <button id="how" class="text-button" aria-controls="help" aria-expanded="false">HOW TO PLAY</button>
+                                <div id="help" hidden>Click or tap a ghost before it hides</div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </body>
+            </html>
