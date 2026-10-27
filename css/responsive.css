@@ -1,0 +1,46 @@
+@media (max-width: 650px) {
+    body { padding: 20px 12px; }
+
+    h1 { font-size: 18px; }
+    .masthead { margin-bottom: 16x; }
+
+    .scoreboard { gap: 14px; min-height: 48px; }
+    .scoreboard > div { gap: 5px; }
+    .scoreboard strong { font-size: 16px; }
+
+    .scoreboard .round-controls { gap: 5px; }
+
+    .small-button { padding: 8px; }
+
+    .yard { height: clamp(360px, calc(100svh - 165px), 560px); background-image: url('../assets/image/background-mobile.png'); }
+
+.hole { width: 22%; height: 100px; }
+    .hole:nth-child(1) { left: 1%; top: 32%; }
+    .hole:nth-child(2) { left: 26%; top: 34%; }
+    .hole:nth-child(3) { left: 51%; top: 32%; }
+    .hole:nth-child(4) { left: 76%; top: 34%; }
+    .hole:nth-child(5) { left: 12%; top: 65%; }
+    .hole:nth-child(6) { left: 39%; top: 67%; }
+    .hole:nth-child(7) { left: 66%; top: 65%; }
+    .shaft { height: 115px; bottom: 7px; }
+    .paper { width: min(300px, 100%); padding: 18px; }
+}
+
+
+@media (max-width: 350px) {
+    .scoreboard { gap: 10px; }
+    .scoreboard > div:not(.round-controls) { flex-direction: column; gap: 2px; }
+    .small-button { padding: 8px 6px; }
+}
+
+@media (min-width: 651px) and (max-height: 700px) {
+    body { padding-top: 14px; padding-bottom: 12px; }
+    .masthead { margin-bottom: 12px; }
+    .yard { height: calc(100svh - 155px); min-height: 300px; }
+    .hole { height: 110px; }
+    .hole:nth-child(n+5) { top: 61%; }
+}
+@media (max-height: 500px) and (max-width: 650px) {
+    .yard { height: 330px; }
+    .hole:nth-child(n+5) { top: 62%; }
+}
