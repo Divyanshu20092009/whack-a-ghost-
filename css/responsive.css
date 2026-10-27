@@ -23,6 +23,7 @@
     .hole:nth-child(6) { left: 39%; top: 67%; }
     .hole:nth-child(7) { left: 66%; top: 65%; }
     .shaft { height: 115px; bottom: 7px; }
+    .target { width: 82%; left: 9%; }
     .paper { width: min(300px, 100%); padding: 18px; }
 }
 
@@ -39,6 +40,7 @@
     .yard { height: calc(100svh - 155px); min-height: 300px; }
     .hole { height: 110px; }
     .hole:nth-child(n+5) { top: 61%; }
+    .target { max-height: 108px; width: 56%; left: 22%; }
 }
 @media (max-height: 500px) and (max-width: 650px) {
     .yard { height: 330px; }

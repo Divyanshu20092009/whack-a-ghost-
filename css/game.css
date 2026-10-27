@@ -45,3 +45,19 @@
 .shaft { position: absolute; bottom: 14px; left: 0; width: 100%; height: 140px; overflow: hidden; z-index: 2; pointer-events: none; }
 
 
+.target {
+    position: absolute; bottom: 0; left: 19%; width: 62%; height: auto;
+    aspect-ratio: 5 / 6; padding: 0; border: 0; background: transparent;
+    transform: translateY(110%); transition: transform 150ms steps(5);
+    pointer-events: none;
+}
+
+.target img { display: block; width: 100%; height: 100%; object-file: conttain;  image-rendering: pixelated; }
+.target.visible { transform: translateY(0); pointer-events: auto; animation: rise 150ms steps(5) both; }
+.target:focus-visible { outline-offset: -5px; }
+
+@keyframes rise {
+    from { transform: translateY(110%); }
+    to { transform: translateY(0); }
+}
+
