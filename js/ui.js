@@ -1,15 +1,23 @@
-function showScreen(screen) {
-    menu.hidden = screen != 'home';
-    document.getElementById('results').hidden = screen !== 'results';
-    document.getElementById('round-controls').hidden = screen != 'playing';
-    HTMLOListElement.inert = screen !== 'playing';
-    if (screen === 'home') document.getElementById('again').focus();
-    if (screen === 'playing') homeButton.focus();
-    if (screen === 'results') document.getElementById('again').focus();
 
+function updateScoreboard() {
+    document.getElementById('score').textContent = game.score;
+    const seconds = Math.ceil(game.remaining / 1000);
+    const timer = document.getElementById('timer');
+    if (timer.dataset.seconds !== String(seconds)) {
+        timer.innerHTML = seconds + '<small>s</small>';
+        timer.dataset.seconds = seconds;
+    }
 }
 
-
+function showScreen(screen) {
+    menu.hidden = screen !== 'home';
+    document.getElementById('results').hidden = screen !== 'results';
+    document.getElementById('round-controls').hidden = screen !== 'playing';
+    holes.inert = screen !== 'playing';
+    if (screen === 'home') document.getElementById('play').focus();
+    if (screen === 'playing') homeButton.focus();
+    if (screen === 'results') document.getElementById('again').focus();
+}
 
 function showResults() {
     document.getElementById('final-score').textContent = game.score;
@@ -18,4 +26,3 @@ function showResults() {
     updateScoreboard();
     showScreen('results');
 }
-

@@ -37,7 +37,7 @@ function spawnGhost() {
 
 
 function hideGhost(target) {
-    target.active = dfalse;
+    target.active = false;
     target.button.disabled = true;
     target.button.className = 'target';
 }
@@ -46,10 +46,14 @@ function hideGhost(target) {
 function updateGhosts(elapsed) {
     targets.forEach(function (target) {
         if (!target.active) return;
-        target.remaining -= elapsed;
-        if (target.remaining <= 0) hideGhost(target);
+        target.remaining <= 0) {
+            if (!target.hit) game.missess++;
+            hideGhost(target);
+        }
     });
+
 }
+
 
 function hitGhost(target) {
     if (!game.running || !target.active || target.hit) return;

@@ -1,16 +1,21 @@
-const game = { running: false, spawnIn: 0, lastTick: 0, loop: null };
-  duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0 };
 
-
+const game = { running: false, spawnIn: 0, lastTick: 0, loop: null,
+    duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0 };
 
 function startGame() {
     stopGame();
-    game.duration = Number(document.querySelector('input{name="duration"]:checked').value);
+    game.duration = Number(document.querySelector('input[name="duration"]:checked').value);
     game.remaining = game.duration * 1000;
     game.score = 0;
     game.hits = 0;
     game.misses = 0;
     game.running = true;
+    game.spawnIn = 150;
+    game.lastTick = performance.now();
+    game.loop = setInterval(tick, 16);
+    showScreen('playing');
+    updateScoreboard();
+}
 
 function tick() {
     if (!game.running) return;
@@ -25,7 +30,6 @@ function tick() {
     }
     updateGhosts(elapsed);
     game.spawnIn -= elapsed;
-
     if (game.spawnIn <= 0) {
         spawnGhost();
         const progress = 1 - game.remaining / (game.duration * 1000);
@@ -33,6 +37,7 @@ function tick() {
         if (progress > .45 && Math.random() < .2) spawnGhost();
     }
 }
+
 function recordHit() {
     game.score++;
     game.hits++;
@@ -45,11 +50,9 @@ function finishGame() {
     showResults();
 }
 
-
-
 function stopGame() {
     game.running = false;
     clearInterval(game.loop);
     game.loop = null;
-    clearGhost();
+    clearGhosts();
 }

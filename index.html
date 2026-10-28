@@ -1,61 +1,59 @@
+
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1">
-        <meta name="theme-color" content="#161b29">
-        <title>Whack the Ghost</title>
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/game.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <script src="js/game.js defer></script>
-        <script src="js/ghosts.js" defer></script
-        <script src="js/main.js" defer></script>
-        <script src="js/ui.js" defer></script>
-        </head>
-        <body>
-
-
-            <main class="cabinet">
-                <header class="cabinet">
-                    <header class="masthead"><h1> WHACK THE GHOST</h1></header>
-                    <section class="scoreboard" aria-label="Scoreboard">
-                        <div><span>Score</span><strong id="score">0</strong></div>
-                        <div><span>Time</span><strong id="timer">45<small>5</small></strong></div>
-                        <div><span>Best</span><strong id="best">0</strong></div>
-                        <div id="round-controls" class="round-controls" hidden>
-                            <button id="home-button" class="small-button">Home</button>
-                        </div>
-                    </section>
-                    <section id="yard" class="yard" aria-label="Graveyard game board">
-                        <div id="menu" class="overlay" role="dialog" aria-label="start game" aria-model="true">
-                            <div class="paper menu-paper">
-                                <p class="subtitle">The ghosts are out tonight</p>
-                                <fieldset class="modes">
-                                    <legend class="sr-only"> Round duration</legend>
-                                    <label><input type="radio" name="duration" value="45" checked> 45 sec</label>
-                                    <label><input type="radio" name="duration" value="60"> 60 sec</label>
-                                </fieldset>
-                                <button id="play" class="primary">PLAY</button>
-                                <button id="how" class="text-button" aria-controls="help" aria-expanded="false">HOW TO PLAY</button>
-                                <div id="help" hidden>Click or tap a ghost before it hides</div>
-                            </div>
-                        </div>
-                        <section id="results" class="overlay" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
-
-                            <div class="paper result paper">
-                                <h2 id="result-title">Round over</h2>
-                                <p class="Final-number" id="Final-score">0</p>
-                                <p class="result-stats">
-                                    <div></div>Ghosts hit</dt><dd id="final-hits">0</dd></div>
-                                    <div></div>Missed</dt><dd id="final-misses">0</dd></div>
-                                </d1>
-                                <button id="again" class="primary">PLAY AGAIN</button>
-                                <button id="result-home" class="text-button">HOME</button>
-                                </p>
-                            </div>
-                        </section>
-                    </section>
-                </main>
-            </body>
-            </html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#161b29">
+    <title>Whack the Ghost</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/game.js" defer></script>
+    <script src="js/ghosts.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <main class="cabinet">
+        <header class="masthead"><h1>WHACK THE GHOST</h1></header>
+        <section class="scoreboard" aria-label="Scoreboard">
+            <div><span>Score</span><strong id="score">0</strong></div>
+            <div><span>Time</span><strong id="timer">45<small>s</small></strong></div>
+            <div><span>Best</span><strong id="best">0</strong></div>
+            <div id="round-controls" class="round-controls" hidden>
+                <button id="home-button" class="small-button">Home</button>
+            </div>
+        </section>
+        <section id="yard" class="yard" aria-label="Graveyard game board">
+            <div id="holes" class="holes"></div>
+            <div id="menu" class="overlay" role="dialog" aria-label="Start game" aria-modal="true">
+                <div class="paper menu-paper">
+                    <p class="subtitle">The ghosts are out tonight.</p>
+                    <fieldset class="modes">
+                        <legend class="sr-only">Round duration</legend>
+                        <label><input type="radio" name="duration" value="45" checked> 45 sec</label>
+                        <label><input type="radio" name="duration" value="60"> 60 sec</label>
+                    </fieldset>
+                    <button id="play" class="primary">PLAY</button>
+                    <button id="how" class="text-button" aria-controls="help" aria-expanded="false">HOW TO PLAY</button>
+                    <div id="help" hidden>Click or tap a ghost before it hides.</div>
+                </div>
+            </div>
+            <section id="results" class="overlay" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+                <div class="paper result-paper">
+                    <h2 id="result-title">Round over</h2>
+                    <p class="final-number" id="final-score">0</p>
+                    <p class="subtitle">points</p>
+                    <dl class="result-stats">
+                        <div><dt>Ghosts hit</dt><dd id="final-hits">0</dd></div>
+                        <div><dt>Missed</dt><dd id="final-misses">0</dd></div>
+                    </dl>
+                    <button id="again" class="primary">PLAY AGAIN</button>
+                    <button id="result-home" class="text-button">HOME</button>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
