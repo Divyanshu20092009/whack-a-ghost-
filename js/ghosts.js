@@ -9,9 +9,12 @@ function setupGhosts() {
         button.setAttribute('aria-label', 'Ghost in hole ' + (index + 1));
         button.innerHTML = '<img src="assets/images/ghost.png" alt="">';
         hole.querySelector('.shaft').append(button);
-        targets.push({ button, active: false, remaining: 0 });
+        const target = { button, active: false, hit: false, remaining: 0 };
+button.addEventListener('click', function () { hitGhost(target); });
+targets.push(target); 
     });
 }
+
 
 function spawnGhost() {
     if (!game.running) return;
@@ -24,7 +27,11 @@ function spawnGhost() {
     const target = available[Math.floor(Math.random() * available.length)];
     previousHole = targets.indexOf(target);
     target.active = true;
-    target.remaining = 1550;
+    target.hit  = false;
+    const progress = 1 - game.remaining / (game.duration * 1000 ); 
+    target.remaining = 1550 - progress * 550;
+    target.button.disabled = false;
+    target.button.querySelector('img').src = 'assets/images/ghost.png';
     target.button.className = 'target visible';
 }
 
@@ -42,6 +49,18 @@ function updateGhosts(elapsed) {
         target.remaining -= elapsed;
         if (target.remaining <= 0) hideGhost(target);
     });
+}
+
+function hitGhost(target) {
+    if (!game.running || !target.active || target.hit) return;
+    tick();
+    if (!game.running || !target.active || target.hit) return;
+    target.hit = true;
+    target.remaining = 200;
+    target.button.disabled = true;
+    target.button.classList.add('hit');
+    target.button.querySelector('img').src = 'assets/images/ghost-hit.png';
+    recordHit(target);
 }
 
 function clearGhosts() {

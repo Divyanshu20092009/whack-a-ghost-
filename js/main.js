@@ -14,17 +14,21 @@ setupGhosts();
 
 document.getElementById('play').addEventListener('click', function () {
     startGame();
-    menu.hidden = true;
-    document.getElementById('round-controls').hidden = false;
-    homeButton.focus();
 });
 
 homeButton.addEventListener('click', function () {
     stopGame();
-    menu.hidden = false;
-    document.getElementById('round-controls').hidden = true;
-    document.getElementById('play').focus();
+    showScreen('home');
 });
+
+document.getElementById('again').addEventListener('click', startGame);
+
+document.getElementById('result-home').addEventListener('click', function () {
+    showScreen('home');
+});
+
+holes.inert = true;
+updateScoreboard();
 
 document.getElementById('how').addEventListener('click', function () {
     const help = document.getElementById('help');

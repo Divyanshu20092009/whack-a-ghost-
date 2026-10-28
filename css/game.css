@@ -61,3 +61,25 @@
     to { transform: translateY(0); }
 }
 
+.target.hit { animation: bonk 200ms steps(3) both; pointer-events: none; }
+@keyframes bonk {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(12px) scale(1.15, .75); }
+    100% { transform: translateY(8px) scale(1.05, .85); }
+}
+
+.paper h2 { font-size: 22px; font-weight: normal; margin: 0 0 24px; }
+.final-number { font-size: 44px; margin: 10px 0 0; }
+.result-paper .subtitle { margin: 0 0 20px; font-size: 12px; } 
+.result-stats { margin: 0 0 22px; }
+
+.result-stats div { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; }
+
+.result-stats dt { color: #abb298; }
+
+.result-stats dd { margin: 0; }
+
+.result-paper .primary { margin-bottom: 12px; }
+
+
+

@@ -11,6 +11,7 @@
         <script src="js/game.js defer></script>
         <script src="js/ghosts.js" defer></script
         <script src="js/main.js" defer></script>
+        <script src="js/ui.js" defer></script>
         </head>
         <body>
 
@@ -40,6 +41,20 @@
                                 <div id="help" hidden>Click or tap a ghost before it hides</div>
                             </div>
                         </div>
+                        <section id="results" class="overlay" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+
+                            <div class="paper result paper">
+                                <h2 id="result-title">Round over</h2>
+                                <p class="Final-number" id="Final-score">0</p>
+                                <p class="result-stats">
+                                    <div></div>Ghosts hit</dt><dd id="final-hits">0</dd></div>
+                                    <div></div>Missed</dt><dd id="final-misses">0</dd></div>
+                                </d1>
+                                <button id="again" class="primary">PLAY AGAIN</button>
+                                <button id="result-home" class="text-button">HOME</button>
+                                </p>
+                            </div>
+                        </section>
                     </section>
                 </main>
             </body>
