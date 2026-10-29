@@ -14,7 +14,7 @@ function setupGhosts() {
         effect.setAttribute('aria-hidden', 'true');
         hole.append(effect);
         const target = { button, effect, effectRemaining: 0, active: false, hit: false, remaining: 0 };
-button.addEventListener('click', function () { hitGhost(target); });
+hole.addEventListener('click', function () { hitGhost(target); });
 targets.push(target); 
     });
 }
@@ -96,9 +96,11 @@ function updateGhosts(elapsed) {
 
 
 function hitGhost(target) {
-    if (!game.running || game.paused ||  !target.active || target.hit) return;
+    if (!game.running || game.paused) return;
     tick();
-    if (!game.running || game.paused ||  !target.active || target.hit) return;
+    if (!game.running || game.paused) return;
+    game.attempts++;
+    if (!target.active || target.hit) return;
     target.hit = true;
     target.remaining = 200;
     target.button.disabled = true;

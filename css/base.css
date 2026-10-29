@@ -41,7 +41,7 @@ h1 { font-size: 20px; margin: 0; font-weight: normal; }
 .scoreboard > div { display: flex; align-items: baseline; gap: 8px; }
 .scoreboard span { color: #949c92; font-size: 12px; }
 .scoreboard strong { font-size: 18px; font-weight: normal; }
-.scoreboard small { font-size: 12px; margin-left: 2px; }
+.scoreboard small { font-size: 12px; margin-left: 2px; color: #949c92; }
 .scoreboard .round-controls { margin-left: 2px; }
 .small-button { font-size: 12px; padding: 6px 10px;}
 footer { display: flex; align-items: center; justify-content: space-between; color: #929b89; font-size: 12px; padding-top: 8px; }

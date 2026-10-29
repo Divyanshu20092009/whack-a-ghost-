@@ -41,6 +41,9 @@ function showScreen(screen) {
 }
 
 function showResults() {
+    let accuracy = 0;
+    if (game.attempts > 0) accuracy = Math.round(game.hits / game.attempts * 100);
+    document.getElementById('final-accuracy').textContent = accuracy + '%';
     document.getElementById('final-time-bonus').textContent = game.bonusTime / 1000 + 's';
     document.getElementById('final-difficulty').textContent = game.difficulty;
     document.getElementById('final-score').textContent = game.score;
@@ -48,6 +51,11 @@ function showResults() {
     document.getElementById('final-hits').textContent = game.hits;
     document.getElementById('final-misses').textContent = game.misses;
     document.getElementById('final-combo').textContent = game.highestCombo;
+    let rating = 'Still learning to bonk.';
+    if (game.score >= 12) rating = 'Ghost catcher.';
+    if (game.score >= 30) rating = 'Graveyard champion.';
+    if (game.score >= 50) rating = 'The ghosts fear you.';
+    document.getElementById('rating').textContent = rating;
     updateScoreboard();
     showScreen('results');
 }

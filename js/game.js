@@ -1,7 +1,21 @@
 
-const game = { running: false, paused: false, spawnIn: 0, lastTick: 0, loop: null,
-    duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0, combo: 0, highestCombo: 0,
-    elapsed: 0, bonusTime: 0, bonusMessage: '', bonusRemaining: 0 
+const game = { running: false,
+    paused: false,
+    spawnIn: 0,
+    lastTick: 0, 
+    loop: null,
+    duration: 45,
+    remaining: 45000, 
+    score: 0, 
+    hits: 0, 
+    misses: 0, 
+    combo: 0, 
+    highestCombo: 0,
+    elapsed: 0, 
+    bonusTime: 0, 
+    bonusMessage: '', 
+    bonusRemaining: 0,
+    
 };
 const difficultySettings = {
     easy: { visibility: 250, interval: 0, description: 'Ghosts stay visible a little longer.'},

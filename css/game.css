@@ -67,6 +67,7 @@
 .target img { display: block; width: 100%; height: 100%; object-fit: conttain;  image-rendering: pixelated; }
 .target[data-type="time"] img { filter: sepia(1) saturate(3) hue-rotate(145deg) brightness(.9); }
 .target.visible { transform: translateY(0); pointer-events: auto; animation: rise 150ms steps(5) both; }
+.target:hover { background: transparent; }
 .target:focus-visible { outline-offset: -5px; }
 
 @keyframes rise {
@@ -84,7 +85,7 @@
 .paper h2 { font-size: 22px; font-weight: normal; margin: 0 0 24px; }
 .final-number { font-size: 44px; margin: 10px 0 0; }
 .result-paper .subtitle { margin: 0 0 20px; font-size: 12px; } 
-.result-stats { margin: 0 0 22px; }
+.result-stats { padding: 0; margin: 0 0 22px; }
 
 .result-stats div { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; }
 
@@ -93,7 +94,18 @@
 .result-stats dd { margin: 0; }
 
 .result-paper .primary { margin-bottom: 12px; }
+.rating { font-size: 12px; margin: -9px 0 16px; color: #d4cda9;}
 
+.wandering-bat {
+    position: absolute; width: 50px; top: 65px; left: -60px;
+    animation: bat-pass 27s steps(90) infinite; pointer-events: none;
+}
+
+@keyframes bat-pass {
+    0%, 78% { left: -60px; transform: translateY(0); }
+    87% { transform: translateY(-16px); }
+    98%, 100% { left: 105%; transform: translateY(7px); }
+}
 .combo-status { position: absolute; top: 20px; left: 0; right: 0; margin: 0; text-align: center; color: #cec39c; font-size: 12px; pointer-events: none;}
 .hit-effect { position: absolute; z-index: 4; top: 5px; left: 0; width: 100%; text-align: center; font-size: 20px; font-weight: bold; color: #f0cf8c; opacity: 0; pointer-events: none; }
 .hit-effect.show { animation: points 550ms steps(6) both; }
