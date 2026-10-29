@@ -29,7 +29,7 @@ function chooseTargetType() {
 }
 
 function spawnGhost(type = chooseTargetType()) {
-    if (!game.running) return;
+    if (!game.running || game.paused) return;
     if (targets.filter(target => target.active).length >= 2) return;
     let available = targets.filter(function (target, index) {
         return !target.active && index !== previousHole;
@@ -91,9 +91,9 @@ function updateGhosts(elapsed) {
 
 
 function hitGhost(target) {
-    if (!game.running || !target.active || target.hit) return;
+    if (!game.running || game.paused ||  !target.active || target.hit) return;
     tick();
-    if (!game.running || !target.active || target.hit) return;
+    if (!game.running || game.paused ||  !target.active || target.hit) return;
     target.hit = true;
     target.remaining = 200;
     target.button.disabled = true;

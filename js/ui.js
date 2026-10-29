@@ -32,7 +32,7 @@ function showScreen(screen) {
     document.getElementById('round-controls').hidden = screen !== 'playing';
     holes.inert = screen !== 'playing';
     if (screen === 'home') document.getElementById('play').focus();
-    if (screen === 'playing') homeButton.focus();
+    if (screen === 'playing') document.getElementById('pause-button').focus();
     if (screen === 'results') document.getElementById('again').focus();
 }
 

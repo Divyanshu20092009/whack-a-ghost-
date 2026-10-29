@@ -1,5 +1,5 @@
 
-const game = { running: false, spawnIn: 0, lastTick: 0, loop: null,
+const game = { running: false, paused: false, spawnIn: 0, lastTick: 0, loop: null,
     duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0, combo: 0, highestCombo: 0 };
 
 function startGame() {
@@ -21,7 +21,7 @@ function startGame() {
 }
 
 function tick() {
-    if (!game.running) return;
+    if (!game.running || game.paused) return;
     const now = performance.now();
     const elapsed = now - game.lastTick;
     game.lastTick = now;
@@ -70,8 +70,36 @@ function finishGame() {
 
 function stopGame() {
     game.running = false;
+    game.paused = false;
     stopSounds();
     clearInterval(game.loop);
     game.loop = null;
+    document.getElementById('pause').hidden = true;
+    document.getElementById('yard').classList.remove('paused');
+    document.getElementById('round-controls').inert = false;
     clearGhosts();
+}
+
+function togglePause() {
+    if (!game.running) return;
+    if (!game.paused) {
+        tick();
+        if (!game.running) return;
+    }
+    game.paused = !game.paused;
+    if (game.paused) {
+        stopSounds();
+    } else {
+        unlockSound();
+    }
+     game.lastTick = performance.now();
+    document.getElementById('pause').hidden = !game.paused;
+    document.getElementById('yard').classList.toggle('paused', game.paused);
+    holes.inert = game.paused;
+    document.getElementById('round-controls').inert = game.paused;
+    if (game.paused) {
+        document.getElementById('resume').focus();
+    } else {
+        document.getElementById('pause-button').focus();
+    }
 }

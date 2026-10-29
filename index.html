@@ -24,6 +24,7 @@
             <div><span>Best</span><strong id="best">0</strong></div>
             <div id="round-controls" class="round-controls" hidden>
                 <button id="home-button" class="small-button">Home</button>
+                <button id="pause-button" class="small-button">Pause</button>
             </div>
         </section>
         <section id="yard" class="yard" aria-label="Graveyard game board">
@@ -40,7 +41,7 @@
                     <button id="play" class="primary">PLAY</button>
                     <button id="how" class="text-button" aria-controls="help" aria-expanded="false">HOW TO PLAY</button>
                     <button class="text-button sound-toggle" aria-pressed="true">SOUND ON</button>
-                    <div id="help" hidden>Click or tap a ghost before it hides. White +1, gold +3, pumpkin -2. Three hits start a combo. A missed ghost or pumpkin ends it.</div>
+                    <div id="help" hidden>Click or tap a ghost before it hides. White +1, gold +3, pumpkin -2. Three hits start a combo. A missed ghost or pumpkin ends it. Keyboard: 1-7 for holes, P or Escape to Pause</div>
                 </div>
             </div>
             <section id="results" class="overlay" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
@@ -56,6 +57,13 @@
                     </dl>
                     <button id="again" class="primary">PLAY AGAIN</button>
                     <button id="result-home" class="text-button">HOME</button>
+                </div>
+            </section>
+            <section id="pause" class="overlay" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
+                <div class="paper">
+                    <h2 id="pause-title">Puased</h2>
+                    <button id="resume" class="primary">RESUME</button>
+                    <button id="pause-home" class="text-button">HOME</button>
                 </div>
             </section>
         </section>
