@@ -30,6 +30,11 @@ document.getElementById('result-home').addEventListener('click', function () {
 holes.inert = true;
 updateScoreboard();
 
+document.querySelectorAll('.sound-toggle').forEach(function (button) {
+    button.addEventListener('click', toggleSound);
+});
+updateSoundButtons();
+
 document.getElementById('how').addEventListener('click', function () {
     const help = document.getElementById('help');
     help.hidden = !help.hidden;

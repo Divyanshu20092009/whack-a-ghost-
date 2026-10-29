@@ -4,6 +4,7 @@ const game = { running: false, spawnIn: 0, lastTick: 0, loop: null,
 
 function startGame() {
     stopGame();
+    unlockSound();
     game.duration = Number(document.querySelector('input[name="duration"]:checked').value);
     game.remaining = game.duration * 1000;
     game.score = 0;
@@ -57,11 +58,19 @@ function recordHit(target) {
 function finishGame() {
     if (!game.running) return;
     stopGame();
+    if (game.score > bestScore) {
+        bestScore = game.score;
+        try {
+            localStorage.setItem('WhackTheGhost.best', String(bestScore));
+        } catch (error) {}
+        }
     showResults();
+    playSound('over');
 }
 
 function stopGame() {
     game.running = false;
+    stopSounds();
     clearInterval(game.loop);
     game.loop = null;
     clearGhosts();

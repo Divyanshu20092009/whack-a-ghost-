@@ -58,6 +58,7 @@ function spawnGhost(type = chooseTargetType()) {
     target.button.setAttribute('aria-label', label + ', hole ' + (previousHole + 1));
     target.button.querySelector('img').src = 'assets/images/' + sprite + '.png';
     target.button.className = 'target visible';
+    playSound('pop');
 }
 
 
@@ -110,6 +111,7 @@ function hitGhost(target) {
     target.effect.className = 'hit-effect show';
     target.effect.classList.toggle('penalty', target.type === 'pumpkin');
     target.effectRemaining = 550;
+    playSound(target.type === 'pumpkin' ? 'wrong' : 'hit');
 }
 
 function clearGhosts() {
