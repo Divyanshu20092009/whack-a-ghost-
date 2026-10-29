@@ -1,6 +1,8 @@
 
 const game = { running: false, paused: false, spawnIn: 0, lastTick: 0, loop: null,
-    duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0, combo: 0, highestCombo: 0 };
+    duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0, combo: 0, highestCombo: 0,
+    elapsed: 0, bonusTime: 0, bonusMessage: '', bonusRemaining: 0 
+};
 const difficultySettings = {
     easy: { visibility: 250, interval: 0, description: 'Ghosts stay visible a little longer.'},
     normal: { visibility: 0, interval:0, description: 'The original ghost timing and pace.' },
@@ -18,6 +20,10 @@ function startGame() {
     game.misses = 0;
     game.combo = 0;
     game.highestCombo = 0;
+    game.elapsed = 0;
+    game.bonusTime = 0;
+    game.bonusMessage = '';
+    game.bonusRemaining = 0;
     game.running = true;
     game.spawnIn = 150;
     game.lastTick = performance.now();
@@ -32,6 +38,8 @@ function tick() {
     const elapsed = now - game.lastTick;
     game.lastTick = now;
     game.remaining = Math.max(0, game.remaining - elapsed);
+    game.elapsed += elapsed;
+    game.bonusRemaining = Math.max(0, game.bonusRemaining - elapsed);
     updateScoreboard();
     if (game.remaining === 0) {
         finishGame();
@@ -51,12 +59,23 @@ function recordHit(target) {
     if (target.type === 'pumpkin') {
         game.score = Math.max(0, game.score - 2);
         game.combo = 0;
-    }
+    } 
     else {
+        if (target.type === 'time') {
+            game.remaining += 3000;
+            game.bonusTime += 3000;
+            showBonus('+3s');
+        }
+        else {
         game.score += target.type === 'golden' ? 3 : 1;
+        }
         game.hits++;
         game.combo++;
         game.highestCombo = Math.max(game.highestCombo, game.combo);
+        if (game.combo % 5 === 0) {
+            game.score += 2;
+            showBonus('+2 bonus');
+        } 
     }
     updateScoreboard();
 }
@@ -111,5 +130,10 @@ function togglePause() {
 }
 
 function roundProgress() {
-    return 1 - game.remaining / (game.duration * 1000);
+    return Math.min(1, 1 - (game.remaining - game.bonusTime) / (game.duration * 1000));
+}
+
+function showBonus(message) {
+    game.bonusMessage = message;
+    game.bonusRemaining = 900;
 }

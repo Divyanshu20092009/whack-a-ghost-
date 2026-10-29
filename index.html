@@ -49,7 +49,7 @@
                     <button id="play" class="primary">PLAY</button>
                     <button id="how" class="text-button" aria-controls="help" aria-expanded="false">HOW TO PLAY</button>
                     <button class="text-button sound-toggle" aria-pressed="true">SOUND ON</button>
-                    <div id="help" hidden>Click or tap a ghost before it hides. White +1, gold +3, pumpkin -2. Three hits start a combo. A missed ghost or pumpkin ends it. Keyboard: 1-7 for holes, P or Escape to Pause</div>
+                    <div id="help" hidden>Click or tap a ghost before it hides. White +1, gold +3, pumpkin -2. Three hits start a combo; every fifth hit adds +2 points. A missed white/gold ghost or pumpkin hit ends it. Rare blue ghosts appear after 15 seconds and add +3s; missing blue has no penalty. Keyboard: 1-7 for holes, P or Escape to Pause.</div>
                 </div>
             </div>
             <section id="results" class="overlay" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
@@ -63,6 +63,7 @@
                         <div><dt>Ghosts hit</dt><dd id="final-hits">0</dd></div>
                         <div><dt>Missed</dt><dd id="final-misses">0</dd></div>\
                         <div><dt>Best combo</dt><dd id="final-combo">0</dd></div>
+                        <div><dt>Extra time</dt><dd id="final-time-bonus">0s</dd></div>
                     </dl>
                     <button id="again" class="primary">PLAY AGAIN</button>
                     <button id="result-home" class="text-button">HOME</button>

@@ -65,6 +65,7 @@
 }
 
 .target img { display: block; width: 100%; height: 100%; object-fit: conttain;  image-rendering: pixelated; }
+.target[data-type="time"] img { filter: sepia(1) saturate(3) hue-rotate(145deg) brightness(.9); }
 .target.visible { transform: translateY(0); pointer-events: auto; animation: rise 150ms steps(5) both; }
 .target:focus-visible { outline-offset: -5px; }
 

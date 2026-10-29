@@ -24,6 +24,10 @@
     .hole:nth-child(7) { left: 66%; top: 65%; }
     .shaft { height: 115px; bottom: 7px; }
     .target { width: 82%; left: 9%; }
+    .hit-effect {
+        font-size: 18px;
+        top: 0;
+    }
     .paper { width: min(300px, 100%); padding: 18px; }
 }
 
@@ -45,4 +49,21 @@
 @media (max-height: 500px) and (max-width: 650px) {
     .yard { height: 330px; }
     .hole:nth-child(n+5) { top: 62%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .target, .target.visible, .target.hit {
+        transition: none;
+        animation: none;
+    }
+    .target-visible {
+        transform: translateY(0);
+    }
+    .target.hit {
+        transform: scale(1.05, .85);
+    }
+    .hit-effect.show {
+        animation: none;
+        opacity: 1;
+    }
 }

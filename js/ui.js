@@ -16,6 +16,10 @@ function updateScoreboard() {
     document.getElementById('score').textContent = game.score;
     let message = '';
     if (game.combo >= 3) message = game.combo + ' in a row';
+    if (game.bonusRemaining > 0) {
+        if (message) message += ' . ';
+        message += game.bonusMessage;
+    }
     const status = document.getElementById('combo-status');
     if (status.textContent !== message) status.textContent = message;
     const seconds = Math.ceil(game.remaining / 1000);
@@ -37,6 +41,7 @@ function showScreen(screen) {
 }
 
 function showResults() {
+    document.getElementById('final-time-bonus').textContent = game.bonusTime / 1000 + 's';
     document.getElementById('final-difficulty').textContent = game.difficulty;
     document.getElementById('final-score').textContent = game.score;
     document.getElementById('final-best').textContent = bestScore;

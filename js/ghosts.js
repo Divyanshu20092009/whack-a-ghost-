@@ -25,6 +25,7 @@ function chooseTargetType() {
     const chance = Math.random();
     if (chance < .13) return 'golden';
     if (chance < .29) return 'pumpkin';
+    if (game.elapsed >= 15000 && Math.random() < .06) return 'time';
     return 'normal';
 }
 
@@ -41,6 +42,7 @@ function spawnGhost(type = chooseTargetType()) {
     target.active = true;
     target.hit  = false;
     target.type = type;
+    target.button.dataset.type = type;
     const progress =roundProgress();
     target.remaining = 1550 - progress * 550 + difficultySettings[game.difficulty].visibility;
     if (type === 'golden') target.remaining -= 220;
@@ -54,6 +56,9 @@ function spawnGhost(type = chooseTargetType()) {
     else if (type === 'pumpkin') {
         sprite = 'pumpkin';
         label = 'Pumpkin, avoid';
+    } 
+    else if (type === 'time') {
+        label = 'Blue time ghost, three extra seconds';
     }
     target.button.setAttribute('aria-label', label + ', hole ' + (previousHole + 1));
     target.button.querySelector('img').src = 'assets/images/' + sprite + '.png';
@@ -78,7 +83,7 @@ function updateGhosts(elapsed) {
         if (!target.active) return;
         target.remaining -= elapsed;
         if (target.remaining <= 0) {
-            if (!target.hit && target.type !== 'pumpkin') {
+            if (!target.hit && target.type !== 'pumpkin' && target.type !== 'time') {
                 game.misses++;
                 game.combo = 0;
                 updateScoreboard();
@@ -107,6 +112,7 @@ function hitGhost(target) {
     let points = '+1';
     if (target.type === 'golden') points = '+3';
     if (target.type === 'pumpkin') points = '-2';
+    if (target.type === 'time') points = '+3s';
     target.effect.textContent = points;
     target.effect.className = 'hit-effect show';
     target.effect.classList.toggle('penalty', target.type === 'pumpkin');
