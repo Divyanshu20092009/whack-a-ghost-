@@ -1,5 +1,5 @@
 :root {
-    color-shceme: dark;
+    color-scheme: dark;
     font-family: Arial, Helvetica, sans-serif;
     color: #d8d9d2;
     background: #101213;
@@ -32,15 +32,20 @@ button:focus-visible, input:focus-visible {
 .masthead { margin-bottom: 22px; }
 h1 { font-size: 20px; margin: 0; font-weight: normal; }
 .primary { background: #c6c3b2; color: #171a18; border-color: #c6c3b2; }
-.primary: hover { background: #c6c3b2; color: #171a18; border-color: #c6c3b2; }
+.primary:hover { background: #c6c3b2; color: #171a18; border-color: #c6c3b2; }
 .primary:hover { background: #ded9c6; } 
 .text-button { border-color: transparent; background: transparent; font-size: 12px; }
 
 
 .scoreboard { display: flex; gap: 28px; align-items: center; min-height: 40px; padding-bottom: 12px; }
-.scoreboard > div { display: flex; align-items: baseline; gap; 8px; }
+.scoreboard > div { display: flex; align-items: baseline; gap: 8px; }
 .scoreboard span { color: #949c92; font-size: 12px; }
 .scoreboard strong { font-size: 18px; font-weight: normal; }
 .scoreboard small { font-size: 12px; margin-left: 2px; }
 .scoreboard .round-controls { margin-left: 2px; }
 .small-button { font-size: 12px; padding: 6px 10px;}
+footer { display: flex; align-items: center; justify-content: space-between; color: #929b89; font-size: 12px; padding-top: 8px; }
+footer .text-button { color: #a7ae9e; padding-right: 0; }
+.legend { display: flex; gap: 18px; }
+.gold-label { color: #bdac78; }
+.pumpkin-label { color: #c28d64; }

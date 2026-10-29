@@ -1,6 +1,10 @@
 
 function updateScoreboard() {
     document.getElementById('score').textContent = game.score;
+    let message = '';
+    if (game.combo >= 3) message = game.combo + ' in a row';
+    const status = document.getElementById('combo-status');
+    if (status.textContent !== message) status.textContent = message;
     const seconds = Math.ceil(game.remaining / 1000);
     const timer = document.getElementById('timer');
     if (timer.dataset.seconds !== String(seconds)) {
@@ -23,6 +27,7 @@ function showResults() {
     document.getElementById('final-score').textContent = game.score;
     document.getElementById('final-hits').textContent = game.hits;
     document.getElementById('final-misses').textContent = game.misses;
+    document.getElementById('final-combo').textContent = game.highestCombo;
     updateScoreboard();
     showScreen('results');
 }

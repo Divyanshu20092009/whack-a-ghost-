@@ -27,6 +27,7 @@
         </section>
         <section id="yard" class="yard" aria-label="Graveyard game board">
             <div id="holes" class="holes"></div>
+            <p id="combo-status" class="combo-status" role="status"></p>
             <div id="menu" class="overlay" role="dialog" aria-label="Start game" aria-modal="true">
                 <div class="paper menu-paper">
                     <p class="subtitle">The ghosts are out tonight.</p>
@@ -37,7 +38,7 @@
                     </fieldset>
                     <button id="play" class="primary">PLAY</button>
                     <button id="how" class="text-button" aria-controls="help" aria-expanded="false">HOW TO PLAY</button>
-                    <div id="help" hidden>Click or tap a ghost before it hides.</div>
+                    <div id="help" hidden>Click or tap a ghost before it hides. White +1, gold +3, pumpkin -2. Three hits start a combo. A missed ghost or pumpkin ends it.</div>
                 </div>
             </div>
             <section id="results" class="overlay" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
@@ -47,13 +48,15 @@
                     <p class="subtitle">points</p>
                     <dl class="result-stats">
                         <div><dt>Ghosts hit</dt><dd id="final-hits">0</dd></div>
-                        <div><dt>Missed</dt><dd id="final-misses">0</dd></div>
+                        <div><dt>Missed</dt><dd id="final-misses">0</dd></div>\
+                        <div><dt>Best combo</dt><dd id="final-combo">0</dd></div>
                     </dl>
                     <button id="again" class="primary">PLAY AGAIN</button>
                     <button id="result-home" class="text-button">HOME</button>
                 </div>
             </section>
         </section>
+        <footer><span class="legend"><span>WHITE +1</span><span class="gold-label">GOLD +3</span><span class="pumpkin-label">PUMPKIN -2</span></span></footer>
     </main>
 </body>
 </html>

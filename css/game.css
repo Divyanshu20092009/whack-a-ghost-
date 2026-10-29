@@ -1,7 +1,7 @@
 .yard {
     position: relative;
     height: 480px;
-    background: #30352b url("../assests/images/background.png") center / 100% 100%;
+    background: #30352b url("../assets/images/background.png") center / 100% 100%;
     image-rendering: pixelated;
     overflow: hidden;
 }
@@ -52,7 +52,7 @@
     pointer-events: none;
 }
 
-.target img { display: block; width: 100%; height: 100%; object-file: conttain;  image-rendering: pixelated; }
+.target img { display: block; width: 100%; height: 100%; object-fit: conttain;  image-rendering: pixelated; }
 .target.visible { transform: translateY(0); pointer-events: auto; animation: rise 150ms steps(5) both; }
 .target:focus-visible { outline-offset: -5px; }
 
@@ -81,5 +81,12 @@
 
 .result-paper .primary { margin-bottom: 12px; }
 
-
-
+.combo-status { position: absolute; top: 20px; left: 0; right: 0; margin: 0; text-align: center; color: #cec39c; font-size: 12px; pointer-events: none;}
+.hit-effect { position: absolute; z-index: 4; top: 5px; left: 0; width: 100%; text-align: center; font-size: 20px; font-weight: bold; color: #f0cf8c; opacity: 0; pointer-events: none; }
+.hit-effect.show { animation: points 550ms steps(6) both; }
+.hit-effect.penalty { color: #e1a075; }
+@keyframes points {
+    0% { opacity: 1; transform: translateY(0); }
+    75% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-30px); }
+}

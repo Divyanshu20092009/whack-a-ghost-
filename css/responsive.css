@@ -12,7 +12,7 @@
 
     .small-button { padding: 8px; }
 
-    .yard { height: clamp(360px, calc(100svh - 165px), 560px); background-image: url('../assets/image/background-mobile.png'); }
+    .yard { height: clamp(360px, calc(100svh - 165px), 560px); background-image: url('../assets/images/background-mobile.png'); }
 
 .hole { width: 22%; height: 100px; }
     .hole:nth-child(1) { left: 1%; top: 32%; }
