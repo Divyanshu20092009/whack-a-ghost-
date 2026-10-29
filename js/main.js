@@ -57,9 +57,9 @@ document.addEventListener('keydown' function (event) {
 });
 
 function keepOverlayFocus(event) {
-    const overLay = document.querySelector('.overlay:not([hidden])');
+    const overlay = document.querySelector('.overlay:not([hidden])');
     if (!overlay) return;
-    const controls = Array.from(overlay.querySelectorAll('buttom, input')).filter(function (control) {
+    const controls = Array.from(overlay.querySelectorAll('button, input', 'select')).filter(function (control) {
         return !control.disabled && control.getClientRects().length > 0;
     });
 }
@@ -81,6 +81,29 @@ document.addEventListener('visibilitychange', function () {
     if (document.hidden && game.running && !game.paused) togglePause();
 });
 
+const difficultyChoice = document.getElementById('difficulty');
+difficultyChoice.value = readDifficulty();
+updateDifficultyDescription();
+
+difficultyChoice.addEventListener('change', function() {
+    updateDifficultyDescription();
+    try {
+        localStorage.setItem('whackTheGhost.difficulty', difficultyChoice.value);
+    } catch (error) {}
+});
+
+function readDifficulty() {
+    try {
+        const saved = localStorage.getItem('whackTheGhost.difficulty');
+        if (Object.hasOwn(difficultySettings, saved)) return saved;
+    } catch (error) {}
+    return 'normal';
+}
+
+function updateDifficultyDescription() {
+    const settings = difficultySettings[difficultyChoice.value];
+    document.getElementById('difficulty-description').textContent = settings.description;
+}
 document.getElementById('how').addEventListener('click', function () {
     const help = document.getElementById('help');
     help.hidden = !help.hidden;

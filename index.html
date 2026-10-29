@@ -31,6 +31,14 @@
             <div id="holes" class="holes"></div>
             <p id="combo-status" class="combo-status" role="status"></p>
             <div id="menu" class="overlay" role="dialog" aria-label="Start game" aria-modal="true">
+                <label class="difficulty-choice" for="difficulty">Difficulty
+                    <select id="difficulty" aria-describedby="difficulty-description">
+                        <option value="easy">Easy</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <span id="difficulty-description" class="sr-only"></span>
+                </label>
                 <div class="paper menu-paper">
                     <p class="subtitle">The ghosts are out tonight.</p>
                     <fieldset class="modes">
@@ -50,6 +58,7 @@
                     <p class="final-number" id="final-score">0</p>
                     <p class="subtitle">points</p>
                     <dl class="result-stats">
+                        <div><dt>Difficulty</dt><dd id="final-difficulty">Normal</dd></div>
                         <div></div>Best Score</dl><dd id="final-best">0</dd></div>
                         <div><dt>Ghosts hit</dt><dd id="final-hits">0</dd></div>
                         <div><dt>Missed</dt><dd id="final-misses">0</dd></div>\

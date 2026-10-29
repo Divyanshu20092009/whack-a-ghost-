@@ -20,7 +20,7 @@ targets.push(target);
 }
 
 function chooseTargetType() {
-    const progress = 1 - game.remaining / (game.duration * 1000); 
+    const progress = roundProgress(); 
     if (progress < .2) return 'normal';
     const chance = Math.random();
     if (chance < .13) return 'golden';
@@ -41,8 +41,8 @@ function spawnGhost(type = chooseTargetType()) {
     target.active = true;
     target.hit  = false;
     target.type = type;
-    const progress = 1 - game.remaining / (game.duration * 1000 ); 
-    target.remaining = 1550 - progress * 550;
+    const progress =roundProgress();
+    target.remaining = 1550 - progress * 550 + difficultySettings[game.difficulty].visibility;
     if (type === 'golden') target.remaining -= 220;
     target.button.disabled = false;
     let sprite = 'ghost';

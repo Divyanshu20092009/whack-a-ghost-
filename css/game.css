@@ -26,6 +26,18 @@
 
 .modes label { cursor: pointer; } 
 .modes input { accent-color: #bab89d; margin: 0; vertical-align: middle; }
+.difficulty-choice {
+    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px; align-items: center;
+    color: #b3baaa; font-size: 10px; white-space: nowrap;
+}
+.difficulty-choice select {
+    font: inherit; color: #d8d9d2; background: #252827;
+    border: 1px solid #4b504b; border-radius: 0; padding: 6px 10px;
+}
+.difficulty-choice select:focus-visible { outline: 2px solid #dfc380; outline-offset: 3px; }
+#menu .paper { max-height: calc(100% - 72px); }
+#final-difficulty { text-transform: capitalize; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 .holes { position: absolute; inset: 0; }

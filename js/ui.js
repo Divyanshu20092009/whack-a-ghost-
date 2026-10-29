@@ -37,6 +37,7 @@ function showScreen(screen) {
 }
 
 function showResults() {
+    document.getElementById('final-difficulty').textContent = game.difficulty;
     document.getElementById('final-score').textContent = game.score;
     document.getElementById('final-best').textContent = bestScore;
     document.getElementById('final-hits').textContent = game.hits;

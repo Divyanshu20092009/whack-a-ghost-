@@ -1,10 +1,16 @@
 
 const game = { running: false, paused: false, spawnIn: 0, lastTick: 0, loop: null,
     duration: 45, remaining: 45000, score: 0, hits: 0, misses: 0, combo: 0, highestCombo: 0 };
+const difficultySettings = {
+    easy: { visibility: 250, interval: 0, description: 'Ghosts stay visible a little longer.'},
+    normal: { visibility: 0, interval:0, description: 'The original ghost timing and pace.' },
+    hard: { visibility: -150, interval: -100, description: 'Ghosts appear faster and hide sooner.' }
+};
 
 function startGame() {
     stopGame();
     unlockSound();
+    game.difficulty = document.getElementById('difficulty').value;
     game.duration = Number(document.querySelector('input[name="duration"]:checked').value);
     game.remaining = game.duration * 1000;
     game.score = 0;
@@ -35,8 +41,8 @@ function tick() {
     game.spawnIn -= elapsed;
     if (game.spawnIn <= 0) {
         spawnGhost();
-        const progress = 1 - game.remaining / (game.duration * 1000);
-        game.spawnIn = 1600 - progress * 750;
+        const progress = roundProgress();
+        game.spawnIn = 1600 - progress * 750 + difficultySettings[game.difficulty].interval;
         if (progress > .45 && Math.random() < .2) spawnGhost();
     }
 }
@@ -102,4 +108,8 @@ function togglePause() {
     } else {
         document.getElementById('pause-button').focus();
     }
+}
+
+function roundProgress() {
+    return 1 - game.remaining / (game.duration * 1000);
 }
