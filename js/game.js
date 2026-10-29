@@ -15,7 +15,7 @@ const game = { running: false,
     bonusTime: 0, 
     bonusMessage: '', 
     bonusRemaining: 0,
-    
+    attempts: 0
 };
 const difficultySettings = {
     easy: { visibility: 250, interval: 0, description: 'Ghosts stay visible a little longer.'},
@@ -31,6 +31,7 @@ function startGame() {
     game.remaining = game.duration * 1000;
     game.score = 0;
     game.hits = 0;
+    game.attempts = 0;
     game.misses = 0;
     game.combo = 0;
     game.highestCombo = 0;
