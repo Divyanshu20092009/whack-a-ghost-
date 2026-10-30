@@ -1,20 +1,14 @@
 @media (max-width: 650px) {
     body { padding: 20px 12px; }
-
     h1 { font-size: 18px; }
-    .masthead { margin-bottom: 16x; }
-
+    .masthead { margin-bottom: 14px; }
     .scoreboard { gap: 14px; min-height: 48px; }
     .scoreboard > div { gap: 5px; }
     .scoreboard strong { font-size: 16px; }
-
     .scoreboard .round-controls { gap: 5px; }
-
     .small-button { padding: 8px; }
-
     .yard { height: clamp(360px, calc(100svh - 165px), 560px); background-image: url('../assets/images/background-mobile.png'); }
-
-.hole { width: 22%; height: 100px; }
+    .hole { width: 22%; height: 100px; }
     .hole:nth-child(1) { left: 1%; top: 32%; }
     .hole:nth-child(2) { left: 26%; top: 34%; }
     .hole:nth-child(3) { left: 51%; top: 32%; }
@@ -32,15 +26,12 @@
     .legend { gap: 10px; font-size: 12px; }
     footer .text-button { font-size: 12px; padding-left: 8px; }
 }
-
-
-@media (max-width: 350px) {
+@media (max-width: 370px) {
     .scoreboard { gap: 10px; }
     .scoreboard > div:not(.round-controls) { flex-direction: column; gap: 2px; }
     .small-button { padding: 8px 6px; }
     .legend { gap: 7px; font-size: 12px; }
 }
-
 @media (min-width: 651px) and (max-height: 700px) {
     body { padding-top: 14px; padding-bottom: 12px; }
     .masthead { margin-bottom: 12px; }
@@ -53,7 +44,6 @@
     .yard { height: 330px; }
     .hole:nth-child(n+5) { top: 62%; }
 }
-
 @media (prefers-reduced-motion: reduce) {
     .wandering-bat {
         animation: none;
@@ -63,7 +53,7 @@
         transition: none;
         animation: none;
     }
-    .target-visible {
+    .target.visible {
         transform: translateY(0);
     }
     .target.hit {

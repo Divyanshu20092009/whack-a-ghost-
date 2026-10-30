@@ -1,26 +1,26 @@
-
-const game = { running: false,
+const game = {
+    running: false,
     paused: false,
     spawnIn: 0,
-    lastTick: 0, 
+    lastTick: 0,
     loop: null,
     duration: 45,
-    remaining: 45000, 
-    score: 0, 
-    hits: 0, 
-    misses: 0, 
-    combo: 0, 
+    remaining: 45000,
+    score: 0,
+    hits: 0,
+    misses: 0,
+    combo: 0,
     highestCombo: 0,
-    elapsed: 0, 
-    bonusTime: 0, 
-    bonusMessage: '', 
+    elapsed: 0,
+    bonusTime: 0,
+    bonusMessage: '',
     bonusRemaining: 0,
     attempts: 0
 };
 const difficultySettings = {
-    easy: { visibility: 250, interval: 0, description: 'Ghosts stay visible a little longer.'},
-    normal: { visibility: 0, interval:0, description: 'The original ghost timing and pace.' },
-    hard: { visibility: -150, interval: -100, description: 'Ghosts appear faster and hide sooner.' }
+    easy: { visibility: 250, interval: 0, description: 'Ghosts stay visible a little longer.' },
+    normal: { visibility: 0, interval: 0, description: 'The original ghost timing and pace.' },
+    hard: { visibility: -160, interval: -100, description: 'Ghosts appear faster and hide sooner.' }
 };
 
 function startGame() {
@@ -74,15 +74,13 @@ function recordHit(target) {
     if (target.type === 'pumpkin') {
         game.score = Math.max(0, game.score - 2);
         game.combo = 0;
-    } 
-    else {
+    } else {
         if (target.type === 'time') {
             game.remaining += 3000;
             game.bonusTime += 3000;
             showBonus('+3s');
-        }
-        else {
-        game.score += target.type === 'golden' ? 3 : 1;
+        } else {
+            game.score += target.type === 'golden' ? 3 : 1;
         }
         game.hits++;
         game.combo++;
@@ -90,7 +88,7 @@ function recordHit(target) {
         if (game.combo % 5 === 0) {
             game.score += 2;
             showBonus('+2 bonus');
-        } 
+        }
     }
     updateScoreboard();
 }
@@ -101,9 +99,9 @@ function finishGame() {
     if (game.score > bestScore) {
         bestScore = game.score;
         try {
-            localStorage.setItem('WhackTheGhost.best', String(bestScore));
+            localStorage.setItem('whackTheGhost.best', String(bestScore));
         } catch (error) {}
-        }
+    }
     showResults();
     playSound('over');
 }
@@ -114,10 +112,10 @@ function stopGame() {
     stopSounds();
     clearInterval(game.loop);
     game.loop = null;
+    clearGhosts();
     document.getElementById('pause').hidden = true;
     document.getElementById('yard').classList.remove('paused');
     document.getElementById('round-controls').inert = false;
-    clearGhosts();
 }
 
 function togglePause() {
@@ -132,7 +130,7 @@ function togglePause() {
     } else {
         unlockSound();
     }
-     game.lastTick = performance.now();
+    game.lastTick = performance.now();
     document.getElementById('pause').hidden = !game.paused;
     document.getElementById('yard').classList.toggle('paused', game.paused);
     holes.inert = game.paused;

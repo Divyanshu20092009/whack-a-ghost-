@@ -5,7 +5,6 @@
     background: #101213;
     font-synthesis: none;
 }
-
 * { box-sizing: border-box; }
 body { margin: 0; padding: 28px 24px; }
 button, input { font: inherit; }
@@ -18,32 +17,26 @@ button {
     cursor: pointer;
     touch-action: manipulation;
 }
-
 button:hover { background: #343935; }
 button:active { transform: translateY(1px); }
 button:focus-visible, input:focus-visible {
     outline: 2px solid #dfc380;
     outline-offset: 3px;
 }
-
-
-[hidden] {display: none !important; }
+[hidden] { display: none !important; }
 .cabinet { max-width: 900px; margin: 0 auto; }
 .masthead { margin-bottom: 22px; }
 h1 { font-size: 20px; margin: 0; font-weight: normal; }
 .primary { background: #c6c3b2; color: #171a18; border-color: #c6c3b2; }
-.primary:hover { background: #c6c3b2; color: #171a18; border-color: #c6c3b2; }
-.primary:hover { background: #ded9c6; } 
+.primary:hover { background: #ded9c6; }
 .text-button { border-color: transparent; background: transparent; font-size: 12px; }
-
-
 .scoreboard { display: flex; gap: 28px; align-items: center; min-height: 40px; padding-bottom: 12px; }
 .scoreboard > div { display: flex; align-items: baseline; gap: 8px; }
 .scoreboard span { color: #949c92; font-size: 12px; }
 .scoreboard strong { font-size: 18px; font-weight: normal; }
 .scoreboard small { font-size: 12px; margin-left: 2px; color: #949c92; }
-.scoreboard .round-controls { margin-left: 2px; }
-.small-button { font-size: 12px; padding: 6px 10px;}
+.scoreboard .round-controls { margin-left: auto; gap: 8px; }
+.small-button { font-size: 12px; padding: 6px 10px; }
 footer { display: flex; align-items: center; justify-content: space-between; color: #929b89; font-size: 12px; padding-top: 8px; }
 footer .text-button { color: #a7ae9e; padding-right: 0; }
 .legend { display: flex; gap: 18px; }

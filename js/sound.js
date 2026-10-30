@@ -1,4 +1,3 @@
-
 const sound = { enabled: true, context: null, voices: new Set() };
 const soundNotes = {
     pop: [{ startFrequency: 260, endFrequency: 470, duration: .06, delay: 0 }],

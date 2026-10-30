@@ -1,35 +1,30 @@
 .yard {
     position: relative;
     height: 480px;
-    background: #30352b url("../assets/images/background.png") center / 100% 100%;
+    background: #30352b url('../assets/images/background.png') center / 100% 100%;
     image-rendering: pixelated;
     overflow: hidden;
 }
-
 .overlay {
     position: absolute; inset: 0;
     display: grid; place-items: center;
     z-index: 5; background: #101213e8;
 }
-
 .paper {
     padding: 22px; text-align: center;
     width: 300px; max-height: calc(100% - 16px);
     overflow-y: auto;
 }
-
 .subtitle { font-size: 13px; color: #b3baaa; margin: 0 0 26px; }
 .paper .primary { display: block; width: 100%; margin-bottom: 13px; }
 #help { font-size: 12px; line-height: 1.7; padding-top: 10px; color: #d1cbb2; }
-
 .modes { border: 0; padding: 0; margin: 0 0 21px; display: flex; gap: 22px; justify-content: center; font-size: 12px; }
-
-.modes label { cursor: pointer; } 
+.modes label { cursor: pointer; }
 .modes input { accent-color: #bab89d; margin: 0; vertical-align: middle; }
 .difficulty-choice {
     position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
     display: flex; gap: 8px; align-items: center;
-    color: #b3baaa; font-size: 10px; white-space: nowrap;
+    color: #b3baaa; font-size: 12px; white-space: nowrap;
 }
 .difficulty-choice select {
     font: inherit; color: #d8d9d2; background: #252827;
@@ -39,80 +34,64 @@
 #menu .paper { max-height: calc(100% - 72px); }
 #final-difficulty { text-transform: capitalize; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-
 .holes { position: absolute; inset: 0; }
-
 .hole { position: absolute; width: 18%; height: 146px; }
 .hole:nth-child(1) { left: 7%; top: 33%; }
 .hole:nth-child(2) { left: 29%; top: 35%; }
 .hole:nth-child(3) { left: 51%; top: 33%; }
-
 .hole:nth-child(4) { left: 74%; top: 35%; }
-
 .hole:nth-child(5) { left: 17%; top: 63%; }
 .hole:nth-child(6) { left: 42%; top: 65%; }
 .hole:nth-child(7) { left: 67%; top: 63%; }
 .hole-art, .rim { position: absolute; width: 100%; bottom: 0; left: 0; pointer-events: none; }
 .rim { z-index: 3; }
 .shaft { position: absolute; bottom: 14px; left: 0; width: 100%; height: 140px; overflow: hidden; z-index: 2; pointer-events: none; }
-
-
 .target {
     position: absolute; bottom: 0; left: 19%; width: 62%; height: auto;
     aspect-ratio: 5 / 6; padding: 0; border: 0; background: transparent;
     transform: translateY(110%); transition: transform 150ms steps(5);
     pointer-events: none;
 }
-
-.target img { display: block; width: 100%; height: 100%; object-fit: conttain;  image-rendering: pixelated; }
+.target img { display: block; width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
 .target[data-type="time"] img { filter: sepia(1) saturate(3) hue-rotate(145deg) brightness(.9); }
 .target.visible { transform: translateY(0); pointer-events: auto; animation: rise 150ms steps(5) both; }
 .target:hover { background: transparent; }
 .target:focus-visible { outline-offset: -5px; }
-
 @keyframes rise {
     from { transform: translateY(110%); }
     to { transform: translateY(0); }
 }
-
 .target.hit { animation: bonk 200ms steps(3) both; pointer-events: none; }
 @keyframes bonk {
     0% { transform: translateY(0); }
     40% { transform: translateY(12px) scale(1.15, .75); }
     100% { transform: translateY(8px) scale(1.05, .85); }
 }
-
 .paper h2 { font-size: 22px; font-weight: normal; margin: 0 0 24px; }
 .final-number { font-size: 44px; margin: 10px 0 0; }
-.result-paper .subtitle { margin: 0 0 20px; font-size: 12px; } 
+.result-paper .subtitle { margin: 0 0 20px; font-size: 12px; }
 .result-stats { padding: 0; margin: 0 0 22px; }
-
 .result-stats div { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; }
-
 .result-stats dt { color: #abb298; }
-
 .result-stats dd { margin: 0; }
-
 .result-paper .primary { margin-bottom: 12px; }
-.rating { font-size: 12px; margin: -9px 0 16px; color: #d4cda9;}
-
+.rating { font-size: 12px; margin: -9px 0 16px; color: #d4cda9; }
 .wandering-bat {
     position: absolute; width: 50px; top: 65px; left: -60px;
     animation: bat-pass 27s steps(90) infinite; pointer-events: none;
 }
-
 @keyframes bat-pass {
     0%, 78% { left: -60px; transform: translateY(0); }
     87% { transform: translateY(-16px); }
     98%, 100% { left: 105%; transform: translateY(7px); }
 }
-.combo-status { position: absolute; top: 20px; left: 0; right: 0; margin: 0; text-align: center; color: #cec39c; font-size: 12px; pointer-events: none;}
-.hit-effect { position: absolute; z-index: 4; top: 5px; left: 0; width: 100%; text-align: center; font-size: 20px; font-weight: bold; color: #f0cf8c; opacity: 0; pointer-events: none; }
+.combo-status { position: absolute; top: 24px; left: 0; right: 0; margin: 0; text-align: center; color: #cec39c; font-size: 12px; pointer-events: none; }
+.hit-effect { position: absolute; z-index: 4; top: 5px; left: 0; width: 100%; text-align: center; font-size: 22px; font-weight: bold; color: #f0cf8c; opacity: 0; pointer-events: none; }
 .hit-effect.show { animation: points 550ms steps(6) both; }
 .hit-effect.penalty { color: #e1a075; }
 .paused * { animation-play-state: paused !important; }
 @keyframes points {
     0% { opacity: 1; transform: translateY(0); }
     75% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 0; transform: translateY(-28px); }
 }

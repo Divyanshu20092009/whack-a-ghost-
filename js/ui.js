@@ -1,6 +1,6 @@
 let bestScore = readBest();
 
-function redBest() {
+function readBest() {
     try {
         const value = Number(localStorage.getItem('whackTheGhost.best'));
         if (Number.isFinite(value) && value >= 0) return Math.floor(value);
@@ -8,16 +8,13 @@ function redBest() {
     return 0;
 }
 
-
-
-
 function updateScoreboard() {
     document.getElementById('best').textContent = bestScore;
     document.getElementById('score').textContent = game.score;
     let message = '';
     if (game.combo >= 3) message = game.combo + ' in a row';
     if (game.bonusRemaining > 0) {
-        if (message) message += ' . ';
+        if (message) message += ' · ';
         message += game.bonusMessage;
     }
     const status = document.getElementById('combo-status');

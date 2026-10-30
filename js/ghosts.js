@@ -14,13 +14,13 @@ function setupGhosts() {
         effect.setAttribute('aria-hidden', 'true');
         hole.append(effect);
         const target = { button, effect, effectRemaining: 0, active: false, hit: false, remaining: 0 };
-hole.addEventListener('click', function () { hitGhost(target); });
-targets.push(target); 
+        hole.addEventListener('click', function () { hitGhost(target); });
+        targets.push(target);
     });
 }
 
 function chooseTargetType() {
-    const progress = roundProgress(); 
+    const progress = roundProgress();
     if (progress < .2) return 'normal';
     const chance = Math.random();
     if (chance < .13) return 'golden';
@@ -40,10 +40,10 @@ function spawnGhost(type = chooseTargetType()) {
     const target = available[Math.floor(Math.random() * available.length)];
     previousHole = targets.indexOf(target);
     target.active = true;
-    target.hit  = false;
+    target.hit = false;
     target.type = type;
     target.button.dataset.type = type;
-    const progress =roundProgress();
+    const progress = roundProgress();
     target.remaining = 1550 - progress * 550 + difficultySettings[game.difficulty].visibility;
     if (type === 'golden') target.remaining -= 220;
     target.button.disabled = false;
@@ -52,12 +52,10 @@ function spawnGhost(type = chooseTargetType()) {
     if (type === 'golden') {
         sprite = 'golden-ghost';
         label = 'Golden ghost, three points';
-    }
-    else if (type === 'pumpkin') {
+    } else if (type === 'pumpkin') {
         sprite = 'pumpkin';
         label = 'Pumpkin, avoid';
-    } 
-    else if (type === 'time') {
+    } else if (type === 'time') {
         label = 'Blue time ghost, three extra seconds';
     }
     target.button.setAttribute('aria-label', label + ', hole ' + (previousHole + 1));
@@ -66,13 +64,11 @@ function spawnGhost(type = chooseTargetType()) {
     playSound('pop');
 }
 
-
 function hideGhost(target) {
     target.active = false;
     target.button.disabled = true;
     target.button.className = 'target';
 }
-
 
 function updateGhosts(elapsed) {
     targets.forEach(function (target) {
@@ -91,9 +87,7 @@ function updateGhosts(elapsed) {
             hideGhost(target);
         }
     });
-
 }
-
 
 function hitGhost(target) {
     if (!game.running || game.paused) return;
@@ -105,7 +99,7 @@ function hitGhost(target) {
     target.remaining = 200;
     target.button.disabled = true;
     target.button.classList.add('hit');
-    if ( target.type !== 'pumpkin') {
+    if (target.type !== 'pumpkin') {
         let image = 'ghost-hit.png';
         if (target.type === 'golden') image = 'golden-ghost-hit.png';
         target.button.querySelector('img').src = 'assets/images/' + image;
